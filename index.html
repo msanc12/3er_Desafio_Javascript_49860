@@ -5,72 +5,72 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#712cf9">
     <title>Registro de Visitas</title>
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/checkout/">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    
-    <!-- Custom styles for this template -->
-    <link href="https://getbootstrap.com/docs/5.3/examples/checkout/checkout.css" rel="stylesheet">
-
+    <link href="https://getbootstrap.com/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://getbootstrap.com/docs/5.3/examples/cover/cover.css" rel="stylesheet">
   </head>
-  <body class="bg-body-tertiary">
+  <body class="d-flex h-100 text-center text-bg-dark">
     <div class="container">
-        <main>
+        <header>
             <div class="py-5 text-center">
-            <h2>Registro de Visitas</h2>
-            <p class="lead">Objetivo: Registrar las visitas en la empresa y si una persona está en la lista negra. Se procederá a ejecutar un protocolo, llamado <b>Orden 66</b>: En donde comunicar a seguridad que retire a la persona.<br>
-            EL DNI es la llave.<br>
-            Los DNI que estan registrado en lista negra son:<br>
-            12345678<br>
-            33333333<br>
-            44444444<br>
-            </p>
+                <h2>Registro de Visitas</h2>
             </div>
-            <div class="row g-5">
-                <div class="col-md-7 col-lg-8">
+        </header>
+        <main>
+            <p class="text-start text-break">Objetivo: Registrar las visitas en la empresa y si una persona está en la lista negra. <br>Se procederá a ejecutar un protocolo, llamado <b>Orden 66</b>: En donde comunicar a seguridad que retire a la persona.<br>
+            EL DNI es la llave. Los DNI que estan registrado en lista negra son:<br>
+            12345678, 33333333, 44444444<br>
+            </p>
+            <div class="row">
                     <h4 class="mb-3">Registro</h4>
                     <form class="needs-validation">
-                        <div class="row g-3">
-                            <div class="col-sm-4">
+                        <div class="row">
+                            <div class="col-md-4">
                                 <label for="firstName" class="form-label">Nombres</label>
                                 <input type="text" class="form-control" id="firstName" placeholder="Nombres" value="" required>
                                 <div class="invalid-feedback">Ingresar nombre</div>
                             </div>
 
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <label for="lastName" class="form-label">Apellidos</label>
                                 <input type="text" class="form-control" id="lastName" placeholder="Apellidos" value="" required>
                                 <div class="invalid-feedback">Ingresar apellidos.</div>
                             </div>
                             
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <label for="DNI" class="form-label">DNI</label>
                                 <input type="text" class="form-control" id="DNI" placeholder="DNI" value="" required>
                                 <div class="invalid-feedback">Ingresar DNI.</div>
                             </div>
 
                         </div>
+                        <hr>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button id="btn_RegistrarValidar" class="btn btn-primary" type="button" >Registrar y Validar</button>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
 
-                        <hr class="my-4">
-
-                        <button id="btn_RegistrarValidar" class="w-100 btn btn-primary btn-lg" type="button" >Registrar y Validar</button>
+                            </div>
+                        </div>
                         <br><br>
                         <div id="resultado">
 
                         </div>
                     </form>
-                </div>
             </div>
         </main>
-
-  <footer class="my-5 pt-5 text-body-secondary text-center text-small">
-    <p class="mb-1">&copy; 2024 Company S.A.</p>
-    <ul class="list-inline">
-  </footer>
-</div>
-<script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
-<script src="./js/main.js"></script>
-    
+        <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+            <p class="mb-1">&copy; 2024 Company S.A.</p>
+            <ul class="list-inline">
+        </footer>
+    </div>
+    <script src="https://getbootstrap.com/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+  </body>
 </html>
