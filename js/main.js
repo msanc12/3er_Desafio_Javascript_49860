@@ -1,4 +1,4 @@
-
+let oMensaje = document.getElementById("divMje");
 
 function Registrar() {
     let ListaNegra = [
@@ -13,27 +13,26 @@ function Registrar() {
 
     var buscarListaNegra = ListaNegra.filter(item => item.DNI == vs_DNI.value);
 
-    console.log(buscarListaNegra);
+    //console.log(buscarListaNegra);
 
     let result = document.getElementById("resultado");
 
     if (buscarListaNegra.length != 0)
     {
-        alert("Alerta revisar el aviso");
-
+        oMensaje.innerHTML = '<br><div class="alert alert-danger" role="alert">Alerta revisar el aviso! Aplicar Orden 66</div>';
+        //alert("Alerta revisar el aviso");
         var dni = buscarListaNegra[0].DNI;
         var nombre = buscarListaNegra[0].nombre;
         var motivo = buscarListaNegra[0].Motivo;
         var foto = buscarListaNegra[0].Foto;
-       
         result.innerHTML = `<div class="card" style="width: 18rem;"><img class="card-img-top" src="${foto}" ><div class="card-body"><h5 class="card-title">${nombre}</h5><p class="card-text">"${motivo}"</p></div></div>`;
-
     }else{
-        alert("Visita Registrada");
-        result.innerHTML = "";
+        oMensaje.innerHTML = '<br><div class="alert alert-success" role="alert">Registro de visita realizado.</div>';
+        //alert("Visita Registrada");
+        result.innerHTML = `<div class="card"><img class="card-img-top img-thumbnail" src="https://m.media-amazon.com/images/I/41Hh5ZiV2DL._AC_.jpg" width="50px" ><div class="card-body"><h5 class="card-title">Registrado:<br>  ${vs_Nombre.value} ${vs_Apellido.value}</h5><p class="card-text">"${vs_DNI.value}"</p></div></div>`;
     }
-   
 
+    
 }
 
 function Validar(){
@@ -67,20 +66,19 @@ function Ini()
     var validacion = Validar();
     if (validacion)
     {
-        console.log(validacion);
+        //console.log(validacion);
         if (validacion.trim().length > 0)
         {
-            alert(validacion);
+            oMensaje.innerHTML = `<br><div class="alert alert-warning" role="alert">${validacion}</div>`;
+            //alert(validacion);
             return;
         }else{
+            oMensaje.innerHTML = '';
             Registrar();
         }
     }else{
         return;
     }
-
 }
-
-
 
 document.getElementById("btn_RegistrarValidar").onclick = Ini;
