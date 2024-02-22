@@ -1,3 +1,11 @@
+class Visita {
+    constructor(Nom, Ape, Doc) {
+        this.Nom = Nom;
+        this.Ape = Ape;
+        this.Doc = Doc;
+    }
+}
+
 let oMensaje = document.getElementById("divMje");
 
 function Registrar() {
@@ -30,9 +38,21 @@ function Registrar() {
         oMensaje.innerHTML = '<br><div class="alert alert-success" role="alert">Registro de visita realizado.</div>';
         //alert("Visita Registrada");
         result.innerHTML = `<div class="card"><img class="card-img-top img-thumbnail" src="https://m.media-amazon.com/images/I/41Hh5ZiV2DL._AC_.jpg" width="50px" ><div class="card-body"><h5 class="card-title">Registrado:<br>  ${vs_Nombre.value} ${vs_Apellido.value}</h5><p class="card-text">"${vs_DNI.value}"</p></div></div>`;
-    }
 
-    
+        GuardarVisita(vs_Nombre.value, vs_Apellido.value, vs_DNI.value);
+    }
+    ListarVisita();
+}
+
+function GuardarVisita(oNom, oApe, oDoc)
+{
+    let NuevaVisita = new Visita(oNom, oApe, oDoc);
+    localStorage.setItem("visita", JSON.stringify(NuevaVisita));
+}
+
+function ListarVisita()
+{
+    return JSON.parse(localStorage.getItem("visita")) || [];
 }
 
 function Validar(){
