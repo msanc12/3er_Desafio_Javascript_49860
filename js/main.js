@@ -41,18 +41,23 @@ function Registrar() {
 
         GuardarVisita(vs_Nombre.value, vs_Apellido.value, vs_DNI.value);
     }
-    ListarVisita();
+    
 }
 
 function GuardarVisita(oNom, oApe, oDoc)
 {
     let NuevaVisita = new Visita(oNom, oApe, oDoc);
-    localStorage.setItem("visita", JSON.stringify(NuevaVisita));
+    let visitas = JSON.parse(localStorage.getItem("visita")) || [];
+    visitas.push(NuevaVisita);
+    localStorage.setItem("visita", JSON.stringify(visitas));
+    
 }
 
 function ListarVisita()
 {
-    return JSON.parse(localStorage.getItem("visita")) || [];
+    
+
+
 }
 
 function Validar(){
