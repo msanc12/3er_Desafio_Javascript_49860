@@ -9,6 +9,7 @@ class Visita {
 let oMensaje = document.getElementById("divMje");
 
 function Registrar() {
+
     let ListaNegra = [
         {id:1, nombre:"Omega", DNI:"12345678", Motivo:"Escapó de Kamino", Foto: "https://static.wikia.nocookie.net/esstarwars/images/c/c6/OmegaDisneyPlusAvatar.png"},
         {id:2, nombre:"Fennec Shand", DNI:"33333333", Motivo:"Cazarrecompensas en contra del Imperio", Foto:"https://static.wikia.nocookie.net/esstarwars/images/9/9f/TBBF_Fennec_Shand.png"},
@@ -40,8 +41,12 @@ function Registrar() {
         result.innerHTML = `<div class="card"><img class="card-img-top img-thumbnail" src="https://m.media-amazon.com/images/I/41Hh5ZiV2DL._AC_.jpg" width="50px" ><div class="card-body"><h5 class="card-title">Registrado:<br>  ${vs_Nombre.value} ${vs_Apellido.value}</h5><p class="card-text">"${vs_DNI.value}"</p></div></div>`;
 
         GuardarVisita(vs_Nombre.value, vs_Apellido.value, vs_DNI.value);
+        
+        vs_Nombre.value = "";
+        vs_Apellido.value = "";
+        vs_DNI.value = "";
     }
-    
+    GetVisitas();
 }
 
 function GuardarVisita(oNom, oApe, oDoc)
@@ -50,15 +55,19 @@ function GuardarVisita(oNom, oApe, oDoc)
     let visitas = JSON.parse(localStorage.getItem("visita")) || [];
     visitas.push(NuevaVisita);
     localStorage.setItem("visita", JSON.stringify(visitas));
-    
 }
 
-function ListarVisita()
+function GetVisitas()
 {
-    
-
-
+    let visitas = JSON.parse(localStorage.getItem("visita")) || [];
+    let tablarow = "";
+    for (const visita of visitas) 
+    {
+        tablarow += `<tr><th scope="row">1</th><td>${visita.Nom}</td><td>${visita.Ape}</td><td>${visita.Doc}</td></tr>`;
+    }
+    document.getElementById('ListaVisitas').innerHTML = tablarow;
 }
+
 
 function Validar(){
     let valCampos = "";
